@@ -1,5 +1,5 @@
 <?php
-ob_start();
+
 $config = [
 	'host'      => 'localhost',
 	'driver'    => 'mysql',
