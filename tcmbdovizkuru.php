@@ -36,35 +36,35 @@ $euro_efektif_satis = $doviz->Currency[3]->BanknoteSelling;
 $euro_CurrencyCode     = $doviz->Currency[3]->attributes()->CurrencyCode;
 $euro_unit             = $doviz->Currency[3]->Unit;
 
-$query = $db->prepare("INSERT INTO RotaDovizKur SET
-						RotaDovizCurrencyID = :RotaDovizCurrencyID,
-						RotaDovizTarih = :RotaDovizTarih,
-						RotaDovizForexBuying = :RotaDovizForexBuying,
-						RotaDovizForexSelling = :RotaDovizForexSelling,
-						RotaDovizBanknoteBuying = :RotaDovizBanknoteBuying,
-						RotaDovizBanknoteSelling = :RotaDovizBanknoteSelling,
-						RotaDovizUnit = :RotaDovizUnit");
+$query = $db->prepare("INSERT INTO DovizKur SET
+						DovizCurrencyID = :DovizCurrencyID,
+						DovizTarih = :DovizTarih,
+						DovizForexBuying = :DovizForexBuying,
+						DovizForexSelling = :DovizForexSelling,
+						DovizBanknoteBuying = :DovizBanknoteBuying,
+						DovizBanknoteSelling = :DovizBanknoteSelling,
+						DovizUnit = :DovizUnit");
 
 // Dolar
 $insert = $query->execute(array(
-    "RotaDovizCurrencyID" => 2,
-    "RotaDovizTarih" => $tarihimiz,
-    "RotaDovizForexBuying" => $usd_doviz_alis,
-    "RotaDovizForexSelling" => $usd_doviz_satis,
-    "RotaDovizBanknoteBuying" => $usd_efektif_alis,
-    "RotaDovizBanknoteSelling" => $usd_efektif_satis,
-    "RotaDovizUnit" => $usd_unit
+    "DovizCurrencyID" => 2,
+    "DovizTarih" => $tarihimiz,
+    "DovizForexBuying" => $usd_doviz_alis,
+    "DovizForexSelling" => $usd_doviz_satis,
+    "DovizBanknoteBuying" => $usd_efektif_alis,
+    "DovizBanknoteSelling" => $usd_efektif_satis,
+    "DovizUnit" => $usd_unit
 ));
 
 // Euro
 $insert = $query->execute(array(
-    "RotaDovizCurrencyID" => 3,
-    "RotaDovizTarih" => $tarihimiz,
-    "RotaDovizForexBuying" => $euro_doviz_alis,
-    "RotaDovizForexSelling" => $euro_doviz_satis,
-    "RotaDovizBanknoteBuying" => $euro_efektif_alis,
-    "RotaDovizBanknoteSelling" => $euro_efektif_satis,
-    "RotaDovizUnit" => $euro_unit
+    "DovizCurrencyID" => 3,
+    "DovizTarih" => $tarihimiz,
+    "DovizForexBuying" => $euro_doviz_alis,
+    "DovizForexSelling" => $euro_doviz_satis,
+    "DovizBanknoteBuying" => $euro_efektif_alis,
+    "DovizBanknoteSelling" => $euro_efektif_satis,
+    "DovizUnit" => $euro_unit
 ));
 
 ob_end_flush();
